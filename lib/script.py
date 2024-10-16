@@ -38,8 +38,6 @@ def shuffle_states():
 
 shuffled_states = shuffle_states()
 
-name = input("Enter your name: ")
-
 
 # ======  SCORE TRACKING VARIABLES ====== #
 correct_answers = 0
@@ -66,7 +64,7 @@ def check_answer(student_answer, state):
     display_score()
 
 def display_score():
-    print(f"Correct State Capitals: {correct_answers}   Incorrect State Capitals: {incorrect_answers}")
+    print(f"Correct: {correct_answers}   Keep practicing: {incorrect_answers}")
     # if correct_answers > 0 and incorrect_answers > 0:
     #     print(f"So far, you have correctly identified {correct_answers} state capitals and incorrectly identified {incorrect_answers} state capitals.")
     # elif correct_answers > 0 and incorrect_answers == 0:
@@ -75,19 +73,24 @@ def display_score():
     #     print(f"So far, you have incorrectly identified {incorrect_answers} state capitals!")
 
 
-
+name = input("Enter your name: ")
 ask_questions(shuffled_states)
 
 
 
-continuation = input("Do you want to continue? (Yes/No): ")
+continuation = input(f"Do you want to play again, {name}? (Yes/No): ")
 
+if continuation.strip().lower() == "yes":
+    shuffled_states = shuffle_states()
+    ask_questions(shuffled_states)
+else:
+    print("Thanks for playing!")
 
 # =========  FUNCTIONS  ============
 #  DONE  shuffle_states(): Randomize the order of states
-# display_question(state): Show the current state to the user
-# get_user_input(): Prompt and receive user's guess
+#  DONE  display_question(state): Show the current state to the user
+#  DONE  get_user_input(): Prompt and receive user's guess
 #  DONE  check_answer(user_input, correct_capital): Verify the user's answer
-# update_score(is_correct): Modify the user's score
+#  N/A   update_score(is_correct): Modify the user's score
 #  DONE  display_score(): Show current or final score
 # play_again(): Ask if the user wants to restart the game
