@@ -63,16 +63,18 @@ def check_answer(student_answer, state):
     else:
         incorrect_answers += 1
         print(f"I'm sorry. The capital of {state['name']} is {state['capital']}.")
+    display_score()
 
 def display_score():
-    if correct_answers > 0 and incorrect_answers > 0:
-        print("So far, you correctly  identified " + correct_answers + "state capitals and incorrectly identified " + incorrect_answers + " state capitals.")
-    elif correct_answers > 0 and incorrect_answers == 0:
-        print("So far, you have correctly identified " + correct_answers + " state capitals.")
-    elif correct_answers == 0 and incorrect_answers > 0:
-        print("So far, you have incorrectly identified " + incorrect_answers + " state capitals.")
+    print(f"Correct State Capitals: {correct_answers}   Incorrect State Capitals: {incorrect_answers}")
+    # if correct_answers > 0 and incorrect_answers > 0:
+    #     print(f"So far, you have correctly identified {correct_answers} state capitals and incorrectly identified {incorrect_answers} state capitals.")
+    # elif correct_answers > 0 and incorrect_answers == 0:
+    #     print(f"So far, you have correctly identified {correct_answers} state capitals!")
+    # elif correct_answers == 0 and incorrect_answers > 0:
+    #     print(f"So far, you have incorrectly identified {incorrect_answers} state capitals!")
 
-display_score()
+
 
 ask_questions(shuffled_states)
 
