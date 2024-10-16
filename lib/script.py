@@ -38,9 +38,8 @@ def shuffle_states():
 
 shuffled_states = shuffle_states()
 
-# Request for user input
 name = input("Enter your name: ")
-continuation = input("Do you want to continue? (Yes/No): ")
+
 
 # ======  SCORE TRACKING VARIABLES ====== #
 correct_answers = 0
@@ -52,7 +51,7 @@ def ask_questions(shuffled_states):
     global correct_answers, incorrect_answers  ## allows modification of variable outside of the current scope
 
     for state in shuffled_states:
-        question = f"What is the capital of {state['name']}?"
+        question = f"What is the capital of {state['name']}? "
         student_answer = input(question)
         check_answer(student_answer, state)
 
@@ -65,14 +64,21 @@ def check_answer(student_answer, state):
         incorrect_answers += 1
         print(f"I'm sorry. The capital of {state['name']} is {state['capital']}.")
 
-    def display_score():
-        if correct_answers > 0 and incorrect_answers > 0:
-            print("So far, you correctly  identified " + correct_answers + "state capitals and incorrectly identified " + incorrect_answers + " state capitals.")
-        elif correct_answers > 0 and incorrect_answers == 0:
-            print("So far, you have correctly identified " + correct_answers + " state capitals.")
-        elif correct_answers == 0 and incorrect_answers > 0:
-            print("So far, you have incorrectly identified " + incorrect_answers + " state capitals.")
+def display_score():
+    if correct_answers > 0 and incorrect_answers > 0:
+        print("So far, you correctly  identified " + correct_answers + "state capitals and incorrectly identified " + incorrect_answers + " state capitals.")
+    elif correct_answers > 0 and incorrect_answers == 0:
+        print("So far, you have correctly identified " + correct_answers + " state capitals.")
+    elif correct_answers == 0 and incorrect_answers > 0:
+        print("So far, you have incorrectly identified " + incorrect_answers + " state capitals.")
 
+display_score()
+
+ask_questions(shuffled_states)
+
+
+
+continuation = input("Do you want to continue? (Yes/No): ")
 
 
 # =========  FUNCTIONS  ============
